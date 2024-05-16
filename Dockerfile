@@ -2,7 +2,7 @@ FROM node:22
 
 EXPOSE 3000/tcp
 
-RUN groupadd -r node && useradd -r -g node node
+RUN id -u node &>/dev/null || useradd -r -g node node
 
 RUN apt-get update && \
     apt-get upgrade -y && \
